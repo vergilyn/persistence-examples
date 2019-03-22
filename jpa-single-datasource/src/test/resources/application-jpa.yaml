@@ -1,0 +1,10 @@
+spring:
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    properties:
+      hibernate.cache.use_query_cache: false
+      hibernate.cache.use_second_level_cache: false
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy

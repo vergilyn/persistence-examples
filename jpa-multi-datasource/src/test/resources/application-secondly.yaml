@@ -1,0 +1,29 @@
+vergilyn:
+  secondly:
+    datasource:
+      url: jdbc:mysql://127.0.0.1:3306/test_secondly?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      continue-on-error: false
+      sql-script-encoding: UTF-8
+      hikari:
+        minimum-idle: 5
+        maximum-pool-size: 15
+        auto-commit: true
+        idle-timeout: 30000
+        pool-name: NacosCloudDatabase
+        max-lifetime: 1800000
+        connection-timeout: 10000
+        connection-test-query: SELECT 1
+        read-only: false
+    jpa:
+      show-sql: true
+      generate-ddl: false
+      properties:
+        hibernate.cache.use_query_cache: false
+        hibernate.cache.use_second_level_cache: false
+    packages:
+      - com.vergilyn.examples.entity
+    persistenceUnit: SecondlyDatasource

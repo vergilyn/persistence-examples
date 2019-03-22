@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: jpa-single-datasource-test
+  profiles:
+    active:
+      - datasource
+      - jdbc
+      - jpa
+logging:
+  level:
+    org: debug

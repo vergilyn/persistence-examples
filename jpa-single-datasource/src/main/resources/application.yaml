@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: jpa-single-datasource
+  profiles:
+    active:
+      - datasource
+      - jdbc
+      - jpa
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG

@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: jpa-multi-datasource
+  profiles:
+    active: firstly, secondly
