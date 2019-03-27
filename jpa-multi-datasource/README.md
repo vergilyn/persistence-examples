@@ -3,9 +3,16 @@
 ## 缺陷
 
 1. 增加数据源
-当需要增加数据源时，不管要新增`yaml`配置，还需要新增`XxxDatasourceConfiguration`，且代码完全一直。
+当需要增加数据源时，不管要新增`yaml`配置，还需要新增`XxxDatasourceConfiguration`，且代码完全一致（也可以重写）。
 
-2. 如何配置name-strategy？
+2. 注解中类似`basePackages`配置不友好。
+```
+@EnableJpaRepositories(transactionManagerRef = "firstlyTransactionManager",
+        entityManagerFactoryRef = "firstlyEntityManagerFactory",
+        basePackages = "com.vergilyn.examples.repository.firstly")
+```
+
+3. 如何配置name-strategy？
 在single-datasource的默认配置下，并不需要显示的指定`@Column(name = "customer_id")`。
 在multi-datasource中，如果不显示声明，jpa会`unknown column "customerId"`。
 

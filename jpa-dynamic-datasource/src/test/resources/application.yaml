@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: jpa-multi-datasource-test
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+  profiles:
+    active: datasource
+
+logging:
+  level:
+    com.vergilyn.examples: debug

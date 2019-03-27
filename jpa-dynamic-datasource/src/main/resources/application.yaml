@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: jpa-multi-datasource
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+  profiles:
+    active: datasource

@@ -11,6 +11,7 @@
     <modules>
         <module>jpa-single-datasource</module>
         <module>jpa-multi-datasource</module>
+        <module>jpa-dynamic-datasource</module>
     </modules>
 
     <repositories>
