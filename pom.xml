@@ -12,6 +12,7 @@
         <module>jpa-single-datasource</module>
         <module>jpa-multi-datasource</module>
         <module>jpa-dynamic-datasource</module>
+        <module>alibaba-druid-datasource</module>
     </modules>
 
     <repositories>
@@ -29,13 +30,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+
         <spring-boot-dependencies.version>2.1.2.RELEASE</spring-boot-dependencies.version>
+        <spring-cloud-alibaba.version>0.2.1.RELEASE</spring-cloud-alibaba.version>
+        <nacos-client.version>0.9.1</nacos-client.version>
+
         <google-guava.version>24.1-jre</google-guava.version>
         <projectlombok.version>1.18.4</projectlombok.version>
         <alibaba-fastjson.version>1.2.54</alibaba-fastjson.version>
         <apache-common-lang3.version>3.5</apache-common-lang3.version>
         <apache-common-io.version>2.6</apache-common-io.version>
+        <apache-common-pool2.version>2.6.1</apache-common-pool2.version>
         <testng.version>6.14.2</testng.version>
+        <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
     </properties>
 
     <dependencies>
@@ -85,6 +92,10 @@
             <version>${apache-common-lang3.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -97,12 +108,44 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- spring-cloud-alibaba -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-client</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+            </dependency>
+
+            <!-- spring-cloud-alibaba-starter 升级 -->
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos-client.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${apache-common-io.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${apache-common-pool2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+                <scope>runtime</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

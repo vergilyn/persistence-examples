@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: alibaba-druid-datasource
+  profiles:
+    active: druid
