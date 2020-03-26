@@ -3,6 +3,7 @@ package com.vergilyn.examples;
 import com.vergilyn.examples.entity.Customer;
 import com.vergilyn.examples.service.CustomerService;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JpaSingleDatasourceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Slf4j
 public class CustomerServiceTest {
     @Autowired
     private CustomerService customerService;
@@ -63,6 +65,26 @@ public class CustomerServiceTest {
         }catch (Exception e){
             Assert.assertEquals(e.getMessage(), CustomerService.ROLLBACK_MESSAGE);
         }
+    }
+
+    @Test
+    public void rollbackCatchScopeCommit(){
+        Long id = 1L;
+
+        Customer customer = customerService.getByJpa(id);
+        log.info("before test >>>> last-update: {}", customer.getLastUpdate());
+
+        log.info("prepare execute test-method");
+        try {
+            customerService.rollbackCatchScopeCommit(id);
+        } catch (Exception e) {
+            // do nothing
+        }
+        log.info("after execute test-method");
+
+        customer = customerService.getByJpa(id);
+        log.info("after test-method >>>> last-update: {}", customer.getLastUpdate());
+
     }
 
     @Test

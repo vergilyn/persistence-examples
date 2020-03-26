@@ -31,6 +31,24 @@ public interface CustomerService {
 
     void rollback2();
 
+    /**
+     * catch中的 写操作 能否正常提交执行？
+     * <pre>
+     *   @Transactional
+     *   public T save(T t){
+     *       try {
+     *           save(t);
+     *           throw new Exception();
+     *       }catch(Exception e) {
+     *           t = new T();
+     *           save(t);
+     *       }
+     *   }
+     *
+     * </pre>
+     */
+    void rollbackCatchScopeCommit(Long id);
+
     @Transactional
     void commitSequence();
 }
