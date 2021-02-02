@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- generator by free-mybatis-plugin -->
+<mapper namespace="com.vergilyn.examples.mybatis.dao.MybatisXmlDao">
+
+    <resultMap id="BaseResultMap" type="com.vergilyn.examples.mybatis.entity.MybatisXmlEntity">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="is_deleted" jdbcType="BOOLEAN" property="isDeleted"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="enum_field" jdbcType="VARCHAR" property="enumField"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id as id,
+        create_time as create_time,
+        is_deleted as is_deleted,
+        `name` as `name`,
+        enum_field as enum_field
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from mybatis_xml
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from mybatis_xml
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.vergilyn.examples.mybatis.entity.MybatisXmlEntity"
+            useGeneratedKeys="true">
+        insert into mybatis_xml (create_time, is_deleted, `name`,
+                             enum_field)
+        values (#{createTime,jdbcType=TIMESTAMP}, #{isDeleted,jdbcType=BOOLEAN}, #{name,jdbcType=VARCHAR},
+                #{enumField,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" keyColumn="id" keyProperty="id"
+            parameterType="com.vergilyn.examples.mybatis.entity.MybatisXmlEntity" useGeneratedKeys="true">
+        insert into mybatis_xml
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="enumField != null">
+                enum_field,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted,jdbcType=BOOLEAN},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="enumField != null">
+                #{enumField,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.vergilyn.examples.mybatis.entity.MybatisXmlEntity">
+        update mybatis_xml
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted,jdbcType=BOOLEAN},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="enumField != null">
+                enum_field = #{enumField,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.vergilyn.examples.mybatis.entity.MybatisXmlEntity">
+        update mybatis_xml
+        set create_time = #{createTime,jdbcType=TIMESTAMP},
+            is_deleted  = #{isDeleted,jdbcType=BOOLEAN},
+            `name`      = #{name,jdbcType=VARCHAR},
+            enum_field  = #{enumField,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

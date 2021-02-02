@@ -7,12 +7,13 @@
     <groupId>com.vergilyn.examples</groupId>
     <artifactId>persistence-examples</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <modules>
         <module>jpa-single-datasource</module>
         <module>jpa-multi-datasource</module>
         <module>jpa-dynamic-datasource</module>
         <module>alibaba-druid-datasource</module>
+        <module>mybatis-examples</module>
     </modules>
 
     <properties>
@@ -21,20 +22,24 @@
         <java.version>1.8</java.version>
 
         <spring-boot-dependencies.version>2.2.2.RELEASE</spring-boot-dependencies.version>
-        <mysql-connector.version>5.1.48</mysql-connector.version>
-        <alibaba-druid.version>1.1.14</alibaba-druid.version>
-
         <projectlombok.version>1.18.10</projectlombok.version>
-        <google-guava.version>28.2-jre</google-guava.version>
+        <google-guava.version>30.0-jre</google-guava.version>
         <alibaba-fastjson.version>1.2.62</alibaba-fastjson.version>
 
+        <alibaba-druid.version>1.2.4</alibaba-druid.version>
+        <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+
         <apache-common-lang3.version>3.9</apache-common-lang3.version>
+        <apache-common-text.version>1.9</apache-common-text.version>
         <apache-common-io.version>2.6</apache-common-io.version>
+        <apache-common-beanutils.version>1.9.4</apache-common-beanutils.version>
+        <apache-common-fileupload.version>1.4</apache-common-fileupload.version>
+        <apache-common-httpclient.version>4.5.10</apache-common-httpclient.version>
+        <apache-common-collections4.version>4.4</apache-common-collections4.version>
+        <apache-common-codec.version>1.15</apache-common-codec.version>
         <apache-common-pool2.version>2.6.1</apache-common-pool2.version>
-        <commons-beanutils.version>1.9.3</commons-beanutils.version>
 
         <testng.version>7.1.0</testng.version>
-        <junit.version>4.13</junit.version>
     </properties>
 
     <dependencyManagement>
@@ -48,48 +53,66 @@
             </dependency>
 
             <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>${apache-common-text.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${apache-common-beanutils.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${apache-common-io.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${apache-common-fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apache-common-httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${apache-common-codec.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-pool2</artifactId>
                 <version>${apache-common-pool2.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>${commons-beanutils.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-connector.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${projectlombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${alibaba-druid.version}</version>
         </dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <!-- logger -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${projectlombok.version}</version>
-            <scope>provided</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
 
         <!-- utils -->
@@ -104,12 +127,18 @@
             <version>${apache-common-lang3.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${apache-common-collections4.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${alibaba-fastjson.version}</version>
         </dependency>
 
         <!-- test -->
+        <!-- spring-boot-starter-test 包含logger的依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -119,12 +148,6 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -151,4 +174,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
