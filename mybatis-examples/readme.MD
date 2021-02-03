@@ -2,8 +2,11 @@
 
 + <https://mybatis.org/mybatis-3/>
 + mybatis: <https://github.com/mybatis/spring-boot-starter>
+
+
 + mybatis-plus: <https://github.com/baomidou/mybatis-plus>
 + mybatis-plus-samples: <https://github.com/baomidou/mybatis-plus-samples>
++ mybatis-plus-guide: <https://mp.baomidou.com/guide/>
 
 只要是`mapper.xml`形式，最繁琐的是：当table字段需要新增/修改时，都需要修改`mapper.xml`。  
 即使`mapper.xml`可以通过 `mybatis-generator / free-mybatis-plugin` 生成，但如果有手写的方法呢？
@@ -16,6 +19,7 @@
 （mybatis太繁琐，mybatis-plus相对没JPA完善。JPA 实体类与table的映射用起来舒服的多！）
 
 Mybatis vs JPA:
+- [为什么我劝你放弃mybatis](https://zhuanlan.zhihu.com/p/45044649)
 - [关于Jpa和Mybatis的一些看法](https://www.cnblogs.com/ymstars/p/10629285.html)
 - [为什么mybatisplus这么好用，反而用的不多？](https://www.zhihu.com/question/314745062)
 - [spring-data-jpa和mybatis可以整合在一起使用有什么优缺点？](https://www.zhihu.com/question/53706909)

@@ -1,30 +1,19 @@
 package com.vergilyn.examples.mybatis.plus;
 
-import javax.annotation.Resource;
-
 import com.alibaba.fastjson.JSON;
 import com.vergilyn.examples.mybatis.plus.entity.MybatisPlusEntity;
-import com.vergilyn.examples.mybatis.plus.mapper.MybatisPlusMapper;
+import com.vergilyn.examples.mybatis.plus.enums.MybatisEnum;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
-import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  *
  * @author vergilyn
  * @since 2021-02-02
  */
-@SpringBootTest(classes = MybatisPlusApplication.class, properties = "spring.profiles.active=datasource,mybatis")
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class MybatisPlusTest {
-
-	@Resource
-	private MybatisPlusMapper mybatisPlusMapper;
-
+public class MybatisPlusMapperTest extends AbstractMybatisPlusTest{
 	private static String _name = "mybatis-plus";
 	private static Long _id = null;
 
@@ -33,6 +22,7 @@ public class MybatisPlusTest {
 	public void insert(){
 		MybatisPlusEntity entity = new MybatisPlusEntity();
 		entity.setName(_name);
+		entity.setEnumField(MybatisEnum.FIRST);
 		// entity.setNewField("new field...");
 
 		mybatisPlusMapper.insert(entity);

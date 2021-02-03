@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.vergilyn.examples.mybatis.plus.mapper.MybatisXmlMapper">
+
+    <select id="xmlSelectById" resultType="com.vergilyn.examples.mybatis.plus.entity.MybatisPlusEntity">
+        SELECT *
+        FROM mybatis_plus
+        WHERE id = #{id}
+    </select>
+
+
+</mapper>
