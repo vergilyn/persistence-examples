@@ -3,11 +3,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <modules>
-        <module>mybatis-xml-examples</module>
-        <module>mybatis-annotation-examples</module>
-        <module>mybatis-plus-examples</module>
-    </modules>
 
     <parent>
         <groupId>com.vergilyn.examples</groupId>
@@ -15,11 +10,17 @@
         <version>${revision}</version>
     </parent>
 
+    <modules>
+        <module>mybatis-basic-examples</module>
+        <module>mybatis-cache-first-examples</module>
+    </modules>
+
     <artifactId>mybatis-examples</artifactId>
     <packaging>pom</packaging>
 
     <properties>
         <mybatis-spring-boot.version>2.1.4</mybatis-spring-boot.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
     </properties>
 
     <dependencyManagement>
@@ -28,6 +29,13 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

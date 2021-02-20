@@ -1,5 +1,0 @@
-mybatis:
-#  config-location: mybatis-config.xml
-  configuration:
-    map-underscore-to-camel-case: true
-    default-enum-type-handler: org.apache.ibatis.type.EnumTypeHandler

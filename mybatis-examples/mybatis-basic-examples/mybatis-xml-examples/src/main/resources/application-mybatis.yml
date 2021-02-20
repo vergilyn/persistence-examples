@@ -1,3 +1,7 @@
+logging:
+  level:
+    com.vergilyn.examples.mybatis.dao: TRACE
+
 mybatis:
   config-location: mybatis-config.xml
 #  configuration:

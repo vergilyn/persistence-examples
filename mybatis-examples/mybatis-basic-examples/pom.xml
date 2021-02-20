@@ -10,17 +10,12 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>mybatis-plus-examples</artifactId>
+    <modules>
+        <module>mybatis-xml-examples</module>
+        <module>mybatis-annotation-examples</module>
+        <module>mybatis-plus-examples</module>
+    </modules>
 
-    <properties>
-        <mybatis-plus.version>3.4.2</mybatis-plus.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis-plus.version}</version>
-        </dependency>
-    </dependencies>
+    <artifactId>mybatis-basic-examples</artifactId>
+    <packaging>pom</packaging>
 </project>
