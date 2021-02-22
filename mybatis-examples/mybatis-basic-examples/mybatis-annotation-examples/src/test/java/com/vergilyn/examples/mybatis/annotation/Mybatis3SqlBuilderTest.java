@@ -29,7 +29,7 @@ public class Mybatis3SqlBuilderTest {
 
 		/*
 		 * `{{ }}`语法：https://www.oschina.net/question/2830476_2274044
-		 * 即，匿名子类初始化，会导致内部类class文件的产生，性能相对标准语法较低。
+		 * 即`Double Brace Initialization` 匿名子类初始化，会导致内部类class文件的产生，性能相对标准语法较低。
 		 *
 		 * 等价于标准语法：
 		 * ```
@@ -62,6 +62,6 @@ public class Mybatis3SqlBuilderTest {
 
 		System.out.println(actualSQL);
 		Assertions.assertEquals(exceptedSQL,
-								actualSQL.replaceAll("\\n", " ").replaceAll("\\s+", " "));
+								actualSQL.replaceAll("\\s", " ").replaceAll("\\s{2,}", " "));
 	}
 }

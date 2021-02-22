@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class MybatisAnnotationEntity extends AbstractEntity<Integer> {
+	public static final String TABLE_NAME = "mybatis_annotation";
 
 	private String name;
 

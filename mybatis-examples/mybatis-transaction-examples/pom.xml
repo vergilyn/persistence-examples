@@ -10,12 +10,10 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>mybatis-basic-examples</artifactId>
+    <artifactId>mybatis-transaction-examples</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>mybatis-xml-examples</module>
-        <module>mybatis-annotation-examples</module>
-        <module>mybatis-plus-examples</module>
+        <module>mybatis-transaction-spring-examples</module>
     </modules>
 </project>

@@ -1,6 +1,6 @@
-package com.vergilyn.examples.mybatis.annotation.mapper;
+package com.vergilyn.examples.mybatis.cache.mapper;
 
-import com.vergilyn.examples.mybatis.annotation.entity.MybatisAnnotationEntity;
+import com.vergilyn.examples.mybatis.cache.entity.MybatisCacheEntity;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 
-import static com.vergilyn.examples.mybatis.annotation.entity.MybatisAnnotationEntity.TABLE_NAME;
+import static com.vergilyn.examples.mybatis.cache.entity.MybatisCacheEntity.TABLE_NAME;
 
 /**
  *
@@ -16,15 +16,15 @@ import static com.vergilyn.examples.mybatis.annotation.entity.MybatisAnnotationE
  * @since 2021-02-02
  */
 @Mapper
-public interface MybatisAnnotationMapper {
+public interface MybatisCacheMapper {
 
 	@Select("SELECT * FROM " + TABLE_NAME + " WHERE id = #{id}")
-	MybatisAnnotationEntity findById(Integer id);
+	MybatisCacheEntity findById(Integer id);
 
 	@SelectKey(statement = "SELECT LAST_INSERT_ID()", keyProperty = "id", before = false, resultType = Integer.class)
 	@Insert("INSERT INTO " + TABLE_NAME + " (create_time, is_deleted, name, enum_field) "
 			+ " VALUES(#{createTime}, #{isDeleted}, #{name}, #{enumField})")
-	int insert(MybatisAnnotationEntity entity);
+	int insert(MybatisCacheEntity entity);
 
 	@Delete("DELETE FROM " + TABLE_NAME + " WHERE id = #{id}")
 	int delete(Integer id);

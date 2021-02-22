@@ -1,6 +1,6 @@
 spring:
   application:
-    name: mybatis-annotation-examples
+    name: mybatis-cache-first-examples
 
   profiles:
     active:

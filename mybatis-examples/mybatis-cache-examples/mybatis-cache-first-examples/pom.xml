@@ -5,17 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
+        <artifactId>mybatis-cache-examples</artifactId>
         <groupId>com.vergilyn.examples</groupId>
-        <artifactId>mybatis-examples</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>mybatis-basic-examples</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>mybatis-cache-first-examples</artifactId>
 
-    <modules>
-        <module>mybatis-xml-examples</module>
-        <module>mybatis-annotation-examples</module>
-        <module>mybatis-plus-examples</module>
-    </modules>
 </project>

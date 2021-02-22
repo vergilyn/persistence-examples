@@ -12,7 +12,8 @@
 
     <modules>
         <module>mybatis-basic-examples</module>
-        <module>mybatis-cache-first-examples</module>
+        <module>mybatis-cache-examples</module>
+        <module>mybatis-transaction-examples</module>
     </modules>
 
     <artifactId>mybatis-examples</artifactId>

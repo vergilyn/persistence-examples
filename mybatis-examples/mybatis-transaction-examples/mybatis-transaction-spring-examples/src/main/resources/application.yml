@@ -1,6 +1,6 @@
 spring:
   application:
-    name: mybatis-annotation-examples
+    name: mybatis-transaction-spring-examples
 
   profiles:
     active:
