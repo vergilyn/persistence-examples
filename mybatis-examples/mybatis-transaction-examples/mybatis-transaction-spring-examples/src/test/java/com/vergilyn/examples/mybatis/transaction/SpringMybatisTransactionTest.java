@@ -22,7 +22,7 @@ public class SpringMybatisTransactionTest extends AbstractMybatisTransactionSpri
 	private MybatisTransactionService service;
 
 	/**
-	 * 每次查询spring会重新创建SqlSession，所以一级缓存是不生效的。
+	 * 每次查询spring会重新创建SqlSession，所以一级缓存(local-cache) <b>不生效</b>。
 	 */
 	@Test
 	public void noTransaction(){
@@ -30,7 +30,7 @@ public class SpringMybatisTransactionTest extends AbstractMybatisTransactionSpri
 	}
 
 	/**
-	 * 当开启事务时，spring会使用同一个SqlSession做查询，所以这个情况下一级缓存是生效的。
+	 * 当开启事务时，spring会使用同一个SqlSession做查询，所以这个情况下一级缓存(local-cache) <b>生效</b>。
 	 */
 	@Test
 	public void withTransaction(){

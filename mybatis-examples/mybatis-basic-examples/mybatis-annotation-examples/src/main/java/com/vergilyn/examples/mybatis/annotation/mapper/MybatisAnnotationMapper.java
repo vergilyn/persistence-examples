@@ -22,10 +22,13 @@ public interface MybatisAnnotationMapper {
 	MybatisAnnotationEntity findById(Integer id);
 
 	@SelectKey(statement = "SELECT LAST_INSERT_ID()", keyProperty = "id", before = false, resultType = Integer.class)
-	@Insert("INSERT INTO " + TABLE_NAME + " (create_time, is_deleted, name, enum_field) "
-			+ " VALUES(#{createTime}, #{isDeleted}, #{name}, #{enumField})")
+	@Insert("INSERT INTO " + TABLE_NAME + " (id, create_time, is_deleted, name, enum_field) "
+			+ " VALUES(#{id}, #{createTime}, #{isDeleted}, #{name}, #{enumField})")
 	int insert(MybatisAnnotationEntity entity);
 
 	@Delete("DELETE FROM " + TABLE_NAME + " WHERE id = #{id}")
 	int delete(Integer id);
+
+	@Delete("DELETE FROM " + TABLE_NAME)
+	int deleteAll();
 }

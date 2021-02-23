@@ -12,16 +12,14 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  *
  * @author vergilyn
  * @since 2021-02-02
  */
-@SpringBootTest(classes = MybatisAnnotationApplication.class, properties = "spring.profiles.active=datasource,mybatis")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class MybatisAnnotationTest {
+public class MybatisAnnotationTest extends AbstractMybatisAnnotationTest{
 	@Autowired
 	private MybatisAnnotationMapper mybatisAnnotationMapper;
 

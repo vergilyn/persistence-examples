@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: mybatis-cache-second-examples
+
+  profiles:
+    active:
+      - mybatis
+      - datasource

@@ -1,4 +1,4 @@
-package com.vergilyn.examples.mybatis.annotation.entity;
+package com.vergilyn.examples.mybatis.cache.entity;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,8 +13,8 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class MybatisAnnotationEntity extends AbstractEntity<Integer> {
-	public static final String TABLE_NAME = "mybatis_annotation";
+public class MybatisCacheEntity extends AbstractEntity<Integer> {
+	public static final String TABLE_NAME = "mybatis_cache";
 
 	private String name;
 

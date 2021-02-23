@@ -16,6 +16,7 @@ import static com.vergilyn.examples.mybatis.plus.enums.MybatisEnum.SECOND;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
+ * mybatis 乐观锁
  *
  * @author vergilyn
  * @since 2021-02-03

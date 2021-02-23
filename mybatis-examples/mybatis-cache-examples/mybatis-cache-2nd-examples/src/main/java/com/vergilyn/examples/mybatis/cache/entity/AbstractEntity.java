@@ -1,4 +1,4 @@
-package com.vergilyn.examples.mybatis.annotation.entity;
+package com.vergilyn.examples.mybatis.cache.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -7,8 +7,6 @@ import com.alibaba.fastjson.JSON;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import static com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty;
 
 @Setter
 @Getter
@@ -20,6 +18,6 @@ public abstract class AbstractEntity<ID> implements Serializable {
 
 	@Override
 	public String toString() {
-		return JSON.toJSONString(this, WriteNullStringAsEmpty);
+		return JSON.toJSONString(this);
 	}
 }
