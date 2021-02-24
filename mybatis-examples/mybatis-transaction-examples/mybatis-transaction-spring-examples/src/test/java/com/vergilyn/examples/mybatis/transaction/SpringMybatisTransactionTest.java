@@ -36,4 +36,5 @@ public class SpringMybatisTransactionTest extends AbstractMybatisTransactionSpri
 	public void withTransaction(){
 		service.withTransactionQuery(ID);
 	}
+
 }

@@ -4,21 +4,29 @@ import java.time.LocalDateTime;
 
 import com.vergilyn.examples.mybatis.transaction.entity.MybatisTransactionEntity;
 import com.vergilyn.examples.mybatis.transaction.mapper.MybatisTransactionMapper;
+import com.vergilyn.examples.mybatis.transaction.service.MybatisTransactionService;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.BeforeEach;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest(classes = MybatisTransactionSpringApplication.class, properties = "spring.profiles.active=datasource,mybatis")
 @Slf4j
+@SpringBootTest(classes = MybatisTransactionSpringApplication.class, properties = "spring.profiles.active=datasource,mybatis")
 public abstract class AbstractMybatisTransactionSpringTest {
 	protected static final Integer ID = 1;
 
 	@Autowired
 	protected SqlSessionFactory sqlSessionFactory;
+	@Autowired
+	protected SqlSessionTemplate sqlSessionTemplate;
+	@Autowired
+	protected MybatisTransactionService service;
+	@Autowired
+	protected MybatisTransactionMapper mapper;
 
 	@BeforeEach
 	public void beforeEach(){
@@ -35,7 +43,7 @@ public abstract class AbstractMybatisTransactionSpringTest {
 			System.out.println("beforeEach() >>>> " + entity);
 		}catch (Exception e){
 			// ignore
-			log.warn(e.getMessage());
+			log.warn("beforeEach() >>>> {}", e.getMessage());
 		}
 	}
 

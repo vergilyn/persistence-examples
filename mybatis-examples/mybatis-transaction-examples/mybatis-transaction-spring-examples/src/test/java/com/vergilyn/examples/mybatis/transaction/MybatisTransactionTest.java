@@ -1,7 +1,6 @@
 package com.vergilyn.examples.mybatis.transaction;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.sun.org.glassfish.gmbal.Description;
 import com.vergilyn.examples.mybatis.transaction.entity.MybatisTransactionEntity;
 import com.vergilyn.examples.mybatis.transaction.mapper.MybatisTransactionMapper;
 
@@ -29,7 +28,6 @@ public class MybatisTransactionTest extends AbstractMybatisTransactionSpringTest
 	 * @see DruidDataSource#defaultAutoCommit
 	 */
 	@Test
-	@Description("expected: not <null>, actual: <null>")
 	public void autocommit(){
 		/**
 		 * autocommit >>>> 实际还是由 {@linkplain DruidDataSource#defaultAutoCommit} 控制！
@@ -49,7 +47,7 @@ public class MybatisTransactionTest extends AbstractMybatisTransactionSpringTest
 		/**
 		 * delete >>>> {@linkplain DefaultSqlSession#delete(String, Object)}
 		 */
-		System.out.println("delete(...) >>> " + mapper.delete(ID));
+		System.out.println("delete(...) >>> rows: " + mapper.delete(ID));
 		// sqlSession.commit();  // 由于`connection.autoCommit = true`，所以还是会自动提交事务。
 
 		MybatisTransactionEntity after = mapper.findById(ID);

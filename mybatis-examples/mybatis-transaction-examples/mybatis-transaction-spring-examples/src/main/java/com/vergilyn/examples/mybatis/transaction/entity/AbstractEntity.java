@@ -18,6 +18,6 @@ public abstract class AbstractEntity<ID> implements Serializable {
 
 	@Override
 	public String toString() {
-		return JSON.toJSONString(this);
+		return Integer.toHexString(hashCode()) + "@" + JSON.toJSONString(this);
 	}
 }
