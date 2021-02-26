@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: jpa-basic-examples
+
+  profiles:
+    active:
+      - datasource
+      - jpa
+      - jdbc
+
+logging:
+  level:
+    # 打印 JdbcTemplate/NamedJdbcTemplate 执行的SQL
+    org.springframework.jdbc.core.JdbcTemplate: debug
+    # sql中对应的参数，效果不理想
+    org.springframework.jdbc.core.StatementCreatorUtils: trace

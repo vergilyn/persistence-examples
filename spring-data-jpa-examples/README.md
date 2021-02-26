@@ -1,5 +1,8 @@
 # jpa-single-datasource
 
++ <https://docs.spring.io/spring-data/jpa/docs/2.4.5/reference/html/#reference>
++ <https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html>
+
 - 单数据源，基于mysql、hikari
 - jpa、JdbcTemplate、NamedParameterJdbcTemplate
 - 事务
@@ -12,23 +15,11 @@
 ## 1. Entity中并不需要显示的声明`@Column`
 ``` java
 @Entity
-@Table(name = "customer")
+@Table(name = "table_name")
 @Data
 @NoArgsConstructor
 @ToString
-public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customerId;
-
-    private Long storeId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private Long addressId;
-    private Byte active;
-    private Date createDate;
-    private Date lastUpdate;
+public class XxxEntity {
 }
 ```
 

@@ -31,23 +31,6 @@ public class CustomerServiceTest {
         System.out.println("before >>>> " + application);
     }
 
-    @Test
-    public void get(){
-        Customer jpa = customerService.getByJpa(1L);
-        Customer jdbc = customerService.getByJdbc(2L);
-        Customer named = customerService.getByNamed(3L);
-
-        System.out.printf("jpa >>>> %s \n\n", jpa);
-        System.out.printf("jdbc >>>> %s \n\n", jdbc);
-        System.out.printf("named >>>> %s \n\n", named);
-    }
-
-    @Test
-    public void update(){
-        customerService.updateByJpa(1L, CustomerService.email("jpa"));
-        customerService.updateByJdbc(2L, CustomerService.email("jdbc"));
-        customerService.updateByNamed(3L, CustomerService.email("named"));
-    }
 
     @Test
     public void rollback(){

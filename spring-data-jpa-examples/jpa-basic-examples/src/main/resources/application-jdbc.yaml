@@ -1,0 +1,11 @@
+spring:
+  jdbc:
+    template:
+      # 设置底层的ResultSet从数据库返回的最大行数
+      max-rows: -1
+      # 设置底层的ResultSet每次从数据库返回的行数。该属性对程序的影响很大，如果设置过大，
+      # 因为一次性载入的数据都放到内存中，所以内存消耗很大；反之相反。
+      # 默认为-1，取驱动程序的默认值
+      fetch-size: -1
+      # 设置JdbcTemplate所创建的Statement查询数据时的最大超时时间
+      query-timeout: 10s

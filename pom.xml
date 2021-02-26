@@ -14,6 +14,7 @@
         <module>jpa-dynamic-datasource</module>
         <module>alibaba-druid-datasource</module>
         <module>mybatis-examples</module>
+        <module>spring-data-jpa-examples</module>
     </modules>
 
     <properties>
@@ -21,7 +22,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <spring-boot-dependencies.version>2.2.2.RELEASE</spring-boot-dependencies.version>
+        <spring-boot-dependencies.version>2.2.11.RELEASE</spring-boot-dependencies.version>
         <projectlombok.version>1.18.10</projectlombok.version>
         <google-guava.version>30.0-jre</google-guava.version>
         <alibaba-fastjson.version>1.2.62</alibaba-fastjson.version>
