@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: mybatis-usage-examples
+
+  profiles:
+    active:
+      - mybatis
+      - datasource

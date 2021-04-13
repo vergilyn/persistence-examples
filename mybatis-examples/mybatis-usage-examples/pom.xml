@@ -6,11 +6,12 @@
 
     <parent>
         <groupId>com.vergilyn.examples</groupId>
-        <artifactId>mybatis-basic-examples</artifactId>
+        <artifactId>mybatis-examples</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>mybatis-plus-examples</artifactId>
+    <artifactId>mybatis-usage-examples</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

@@ -12,6 +12,8 @@ import com.alibaba.fastjson.JSON;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory;
 import org.springframework.data.domain.Persistable;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -20,12 +22,16 @@ import static com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringA
 
 /**
  *
+ * {@linkplain GenericGenerator#strategy()} SEE: {@linkplain DefaultIdentifierGeneratorFactory}
+ *
+ *
  * @author vergilyn
  * @since 2021-02-25
  *
  * @see Persistable
  * @see AbstractPersistable
  * @see org.springframework.data.jpa.domain.AbstractAuditable
+ * @see org.hibernate.annotations.GenericGenerator
  */
 @Setter
 @Getter
@@ -40,7 +46,9 @@ public abstract class AbstractEntity<ID extends Serializable> implements Seriali
 	@Column(name = FIELD_ID)
 	private ID id;
 
+	// @org.hibernate.annotations.CreationTimestamp
 	private LocalDateTime createTime;
+	// @org.hibernate.annotations.UpdateTimestamp
 	private LocalDateTime modifyTime;
 
 	@Column(name = FIELD_IS_DELETED)

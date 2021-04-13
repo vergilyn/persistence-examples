@@ -9,5 +9,4 @@ CREATE TABLE `mybatis_plus`
     `enum_field`  VARCHAR(50)         NOT NULL DEFAULT 'NONE',
     `version`     int                 NOT NULL DEFAULT 1,
     PRIMARY KEY (`id`)
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8mb4;
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;

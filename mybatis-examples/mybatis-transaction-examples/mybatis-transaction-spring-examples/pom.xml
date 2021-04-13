@@ -5,8 +5,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>mybatis-cache-examples</artifactId>
     <groupId>com.vergilyn.examples</groupId>
+    <artifactId>mybatis-transaction-examples</artifactId>
     <version>${revision}</version>
   </parent>
 
