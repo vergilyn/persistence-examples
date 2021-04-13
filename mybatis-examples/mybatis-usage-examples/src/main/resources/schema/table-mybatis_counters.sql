@@ -6,4 +6,4 @@ CREATE TABLE `mybatis_counters`
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
-INSERT INTO `mybatis_counters`(`id`, `counter`) VALUES (1, 1);
+INSERT INTO `mybatis_counters`(`id`, `counter`) VALUES (1, 0);

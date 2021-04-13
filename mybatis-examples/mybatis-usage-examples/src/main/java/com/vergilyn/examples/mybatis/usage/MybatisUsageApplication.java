@@ -17,5 +17,6 @@ public class MybatisUsageApplication {
 		SpringApplication application = new SpringApplication(MybatisUsageApplication.class);
 
 		ConfigurableApplicationContext context = application.run(args);
+
 	}
 }

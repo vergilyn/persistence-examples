@@ -4,6 +4,15 @@
 
 <mapper namespace="com.vergilyn.examples.mybatis.usage.mapper.MybatisCountersMapper">
 
+    <sql id="tableName">`mybatis_counters`</sql>
 
+    <update id="incr">
+        UPDATE <include refid="tableName"/>
+            SET `counter` = `counter` + 1
+        WHERE #{id}
+    </update>
 
+    <update id="incrByMybatisCascade">
+
+    </update>
 </mapper>
