@@ -6,25 +6,35 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 
+import javax.annotation.Resource;
+
 import com.vergilyn.examples.mybatis.usage.entity.MybatisCountersEntity;
 import com.vergilyn.examples.mybatis.usage.mapper.MybatisCountersMapper;
 
 import lombok.SneakyThrows;
 import org.apache.ibatis.session.SqlSession;
 import org.assertj.core.api.Assertions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 import org.testng.collections.Maps;
 
 /**
+ * 实际项目中让 `incr(), selectById()`处于同一个事务可能更简单方便。（以下方案可能也能到达目的，但相对复杂）：<br/>
  * 1. <a href="http://www.sqlines.com/mysql/how-to/select-update-single-statement-race-condition">
  *      MySQL How To Select and Update in Single Statement - Increment Counter avoiding Race Condition
- *    </a>
+ *    </a><br/>
+ * 2. <a href="https://mybatis.org/mybatis-3/zh/sqlmap-xml.html#Result_Maps">关联的嵌套 Select 查询</a><br/>
+ * 3. <a href="https://segmentfault.com/q/1010000017822787">Mysql update后，返回更新后的值？</a>
+ *
+ * <p>
+ * 思考：
+ *   实际场景中（保证 incr&select 处于同一事务下），如果达到性能瓶颈，其实再怎么通过mysql这一层都无法很好的优化
+ *   （比如利用`1)`中存储过程，避免1次SELECT）
+ *
  * @author vergilyn
  * @since 2021-04-13
  */
 public class IncrReturnTestng extends AbstractMybatisUsageApplicationTestng {
-	@Autowired
+	@Resource
 	private MybatisCountersMapper countersMapper;
 
 	private final Long _id = 1L;
@@ -130,4 +140,9 @@ public class IncrReturnTestng extends AbstractMybatisUsageApplicationTestng {
 				.containsExactlyInAnyOrder(1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L);
 	}
 
+	@Test
+	public void incrAvoidSecondSelect(){
+		Integer counter = countersMapper.incrAvoidSecondSelect(_id);
+		System.out.println(counter);
+	}
 }

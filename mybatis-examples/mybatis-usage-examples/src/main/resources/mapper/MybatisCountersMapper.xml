@@ -12,7 +12,16 @@
         WHERE #{id}
     </update>
 
-    <update id="incrByMybatisCascade">
+    <!-- SEE: http://www.sqlines.com/mysql/how-to/select-update-single-statement-race-condition
+        error: multi-statement not allow！
+    -->
+    <select id="incrAvoidSecondSelect" resultType="Integer">
+        UPDATE <include refid="tableName"/>
+            SET `counter` = (@old_value := `counter`) + 1
+        WHERE id = #{id};
 
-    </update>
+        SELECT @old_value;
+    </select>
+
+
 </mapper>
