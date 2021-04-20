@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: spring-data-mongodb-examples
+
+  profiles:
+    active:
+      - mondogb
