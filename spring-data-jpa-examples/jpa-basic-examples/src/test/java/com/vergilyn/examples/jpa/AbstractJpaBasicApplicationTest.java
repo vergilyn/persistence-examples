@@ -1,7 +1,8 @@
-package com.vergilyn.examples.jpa.basic;
+package com.vergilyn.examples.jpa;
 
 import com.alibaba.fastjson.JSON;
-import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
+import com.vergilyn.examples.jpa.basic.JpaBasicApplication;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

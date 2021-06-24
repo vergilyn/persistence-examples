@@ -7,7 +7,8 @@ import java.util.stream.Stream;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.Predicate;
 
-import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
+import com.vergilyn.examples.jpa.AbstractJpaBasicApplicationTest;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity;
 import com.vergilyn.examples.jpa.basic.repository.PagingBasicRepository;
 
 import org.apache.commons.lang3.StringUtils;
@@ -32,7 +33,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @SuppressWarnings("JavadocReference")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class PageTest extends AbstractJpaBasicApplicationTest{
+public class PageTest extends AbstractJpaBasicApplicationTest {
 
 	@Autowired
 	private PagingBasicRepository repository;

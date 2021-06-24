@@ -1,4 +1,4 @@
-package com.vergilyn.examples.jpa.basic.entity;
+package com.vergilyn.examples.jpa.basic.entity.numeric;
 
 import java.time.LocalDateTime;
 
@@ -21,7 +21,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class JpaBasicEntity extends AbstractEntity<Long>{
+public class JpaBasicEntity extends AbstractLongEntity {
 
 	public static final String TABLE_NAME = "jpa_basic";
 

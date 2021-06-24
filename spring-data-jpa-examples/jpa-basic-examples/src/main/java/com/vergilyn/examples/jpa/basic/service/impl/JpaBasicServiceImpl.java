@@ -2,7 +2,7 @@ package com.vergilyn.examples.jpa.basic.service.impl;
 
 import java.time.LocalDateTime;
 
-import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity;
 import com.vergilyn.examples.jpa.basic.repository.CrudBasicRepository;
 import com.vergilyn.examples.jpa.basic.service.JpaBasicService;
 

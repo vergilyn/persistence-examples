@@ -4,8 +4,8 @@ import java.util.stream.Stream;
 
 import javax.persistence.GeneratedValue;
 
-import com.vergilyn.examples.jpa.basic.entity.AbstractEntity;
-import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
+import com.vergilyn.examples.jpa.AbstractJpaBasicApplicationTest;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity;
 import com.vergilyn.examples.jpa.basic.repository.CrudBasicRepository;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 @SuppressWarnings("JavadocReference")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class InsertEntityTest extends AbstractJpaBasicApplicationTest{
+public class InsertEntityTest extends AbstractJpaBasicApplicationTest {
 
 	@Autowired
 	private CrudBasicRepository repository;

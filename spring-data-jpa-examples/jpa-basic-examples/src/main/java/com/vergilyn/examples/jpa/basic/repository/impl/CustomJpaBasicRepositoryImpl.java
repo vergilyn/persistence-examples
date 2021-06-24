@@ -3,7 +3,7 @@ package com.vergilyn.examples.jpa.basic.repository.impl;
 import java.util.Map;
 
 import com.google.common.collect.Maps;
-import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity;
 import com.vergilyn.examples.jpa.basic.repository.CustomJpaBasicRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-import static com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity.TABLE_NAME;
+import static com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity.TABLE_NAME;
 
 public class CustomJpaBasicRepositoryImpl implements CustomJpaBasicRepository {
 	@Autowired

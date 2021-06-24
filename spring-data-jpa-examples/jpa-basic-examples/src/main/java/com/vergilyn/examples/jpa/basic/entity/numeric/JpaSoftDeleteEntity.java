@@ -1,4 +1,4 @@
-package com.vergilyn.examples.jpa.basic.entity;
+package com.vergilyn.examples.jpa.basic.entity.numeric;
 
 import java.time.LocalDateTime;
 
@@ -21,10 +21,10 @@ import org.hibernate.annotations.Where;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SQLDelete(sql = "UPDATE " + JpaSoftDeleteEntity.TABLE_NAME
-					+ " SET " + AbstractEntity.FIELD_IS_DELETED + " = true"
-					+ " WHERE " + AbstractEntity.FIELD_ID + " = ?")
-@Where(clause = AbstractEntity.SOFT_DELETE_SQL) // soft-delete, not-support defined in super-class(e.g. `AbstractEntity`)
-public class JpaSoftDeleteEntity extends AbstractEntity<Long>{
+					+ " SET " + AbstractLongEntity.FIELD_IS_DELETED + " = true"
+					+ " WHERE " + AbstractLongEntity.FIELD_ID + " = ?")
+@Where(clause = AbstractLongEntity.SOFT_DELETE_SQL) // soft-delete, not-support defined in super-class(e.g. `AbstractEntity`)
+public class JpaSoftDeleteEntity extends AbstractLongEntity{
 
 	public static final String TABLE_NAME = "jpa_soft_delete";
 

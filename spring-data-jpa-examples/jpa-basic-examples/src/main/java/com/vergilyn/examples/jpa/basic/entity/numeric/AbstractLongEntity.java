@@ -1,6 +1,5 @@
-package com.vergilyn.examples.jpa.basic.entity;
+package com.vergilyn.examples.jpa.basic.entity.numeric;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -8,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.MappedSuperclass;
 
 import com.alibaba.fastjson.JSON;
+import com.vergilyn.examples.jpa.basic.entity.AbstractIdEntity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -35,10 +35,18 @@ import static com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringA
 @Setter
 @Getter
 @MappedSuperclass
-public abstract class AbstractEntity<ID extends Serializable> implements Serializable {
-	protected static final String FIELD_ID = "id";
+public abstract class AbstractLongEntity extends AbstractIdEntity<Long> {
 	protected static final String FIELD_IS_DELETED = "is_deleted";
 	protected static final String SOFT_DELETE_SQL = FIELD_IS_DELETED + " = false";
+
+
+	// @org.hibernate.annotations.CreationTimestamp
+	private LocalDateTime createTime;
+	// @org.hibernate.annotations.UpdateTimestamp
+	private LocalDateTime modifyTime;
+
+	@Column(name = FIELD_IS_DELETED)
+	private Boolean isDeleted;
 
 	/**
 	 * {@linkplain GenerationType}:
@@ -53,18 +61,13 @@ public abstract class AbstractEntity<ID extends Serializable> implements Seriali
 	 *
 	 * {@linkplain GenericGenerator#strategy()}: {@linkplain DefaultIdentifierGeneratorFactory}
 	 */
+	@Override
 	@Column(name = FIELD_ID)
 	@javax.persistence.Id
 	@javax.persistence.GeneratedValue(strategy = GenerationType.IDENTITY)
-	private ID id;
-
-	// @org.hibernate.annotations.CreationTimestamp
-	private LocalDateTime createTime;
-	// @org.hibernate.annotations.UpdateTimestamp
-	private LocalDateTime modifyTime;
-
-	@Column(name = FIELD_IS_DELETED)
-	private Boolean isDeleted;
+	public Long getId() {
+		return super.id;
+	}
 
 	@Override
 	public String toString() {

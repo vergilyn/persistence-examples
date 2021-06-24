@@ -1,6 +1,6 @@
 package com.vergilyn.examples.jpa.basic.repository;
 
-import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity;
 
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.PagingAndSortingRepository;

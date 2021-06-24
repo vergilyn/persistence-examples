@@ -2,7 +2,8 @@ package com.vergilyn.examples.jpa.basic;
 
 import java.util.Optional;
 
-import com.vergilyn.examples.jpa.basic.entity.JpaSoftDeleteEntity;
+import com.vergilyn.examples.jpa.AbstractJpaBasicApplicationTest;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaSoftDeleteEntity;
 import com.vergilyn.examples.jpa.basic.repository.JpaSoftDeleteRepository;
 
 import org.assertj.core.api.Condition;

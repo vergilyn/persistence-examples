@@ -1,6 +1,7 @@
 package com.vergilyn.examples.jpa.basic;
 
-import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
+import com.vergilyn.examples.jpa.AbstractJpaBasicApplicationTest;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity;
 import com.vergilyn.examples.jpa.basic.repository.CrudBasicRepository;
 import com.vergilyn.examples.jpa.basic.repository.PagingBasicRepository;
 
@@ -8,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class FindEntityTest extends AbstractJpaBasicApplicationTest{
+public class FindEntityTest extends AbstractJpaBasicApplicationTest {
 	@Autowired
 	private CrudBasicRepository repository;
 

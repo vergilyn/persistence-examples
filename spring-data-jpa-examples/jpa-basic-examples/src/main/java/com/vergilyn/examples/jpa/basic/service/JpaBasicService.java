@@ -1,6 +1,6 @@
 package com.vergilyn.examples.jpa.basic.service;
 
-import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity;
 
 public interface JpaBasicService {
 

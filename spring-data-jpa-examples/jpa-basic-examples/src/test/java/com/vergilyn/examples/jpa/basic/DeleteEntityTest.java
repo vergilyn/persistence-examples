@@ -1,6 +1,7 @@
 package com.vergilyn.examples.jpa.basic;
 
-import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
+import com.vergilyn.examples.jpa.AbstractJpaBasicApplicationTest;
+import com.vergilyn.examples.jpa.basic.entity.numeric.JpaBasicEntity;
 import com.vergilyn.examples.jpa.basic.repository.CrudBasicRepository;
 
 import org.junit.jupiter.api.Test;
