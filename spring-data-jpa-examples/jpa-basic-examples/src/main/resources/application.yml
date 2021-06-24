@@ -10,7 +10,7 @@ spring:
 
 logging:
   level:
-    # 打印 JdbcTemplate/NamedJdbcTemplate 执行的SQL
+    # 打印 JdbcOperations/NamedJdbcTemplate 执行的SQL
     org.springframework.jdbc.core.JdbcTemplate: debug
     # sql中对应的参数，效果不理想
     org.springframework.jdbc.core.StatementCreatorUtils: trace

@@ -24,6 +24,12 @@ public abstract class AbstractJpaBasicApplicationTest {
 		jdbcTemplate.execute("TRUNCATE TABLE " + tableName);
 	}
 
+	protected void dropTable(String tableName){
+		// 清空数据
+		jdbcTemplate.execute("DROP TABLE " + tableName);
+	}
+
+
 	protected String toJSONString(Object obj){
 		return JSON.toJSONString(obj, PrettyFormat);
 	}

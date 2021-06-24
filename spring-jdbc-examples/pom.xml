@@ -10,18 +10,16 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>spring-data-jpa-examples</artifactId>
+    <artifactId>spring-jdbc-examples</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>jpa-basic-examples</module>
-        <module>jpa-cascade-examples</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
         <dependency>
@@ -31,6 +29,11 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
         </dependency>
     </dependencies>
 </project>

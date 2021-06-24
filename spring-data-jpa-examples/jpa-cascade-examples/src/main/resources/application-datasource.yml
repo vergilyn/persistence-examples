@@ -34,3 +34,4 @@ spring:
         login-username: admin
         login-password: admin
       enable: true
+      default-auto-commit: true

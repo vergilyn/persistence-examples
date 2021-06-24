@@ -9,6 +9,7 @@ import com.vergilyn.examples.jpa.basic.entity.JpaBasicEntity;
 import com.vergilyn.examples.jpa.basic.repository.CrudBasicRepository;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -37,6 +38,18 @@ public class InsertEntityTest extends AbstractJpaBasicApplicationTest{
 		truncateTable(TABLE_NAME);
 		// 修改 auto_increment
 		jdbcTemplate.execute("ALTER TABLE " + TABLE_NAME + " AUTO_INCREMENT = " + _autoIncrement);
+	}
+
+	@Test
+	public void save(){
+		Long id = null;
+		JpaBasicEntity e = JpaBasicEntity.build(id);
+
+		e = repository.save(e);
+
+		System.out.printf("expected: %d, actual: %d\n", id, e.getId());
+
+		assertThat(e.getId()).isEqualTo(id);
 	}
 
 	/**

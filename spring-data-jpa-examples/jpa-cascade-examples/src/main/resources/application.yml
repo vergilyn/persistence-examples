@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: jpa-cascade-examples
+  output:
+    ansi:
+      enabled: always
+  profiles:
+    active:
+      - datasource
+      - jpa

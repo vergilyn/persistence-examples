@@ -165,3 +165,16 @@ DEBUG 5804 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Clos
 
 
 
+## 3. `failed to lazily initialize a collection of role: c...UserEntity.orders, could not initialize proxy - no Session`
+```java
+public class UserEntity extends AbstractEntity<Long>{
+
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id")
+	private List<UserOrderEntity> orders;
+	
+	// ...
+}
+```
+
+改成`FetchType.EAGER`解决，**但不满足期望**。

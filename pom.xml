@@ -16,6 +16,8 @@
         <module>mybatis-examples</module>
         <module>spring-data-jpa-examples</module>
         <module>mongodb-examples</module>
+        <module>spring-jdbc-examples</module>
+        <module>spring-jdbc-examples/declare-jdbc-examples</module>
     </modules>
 
     <properties>
@@ -31,21 +33,34 @@
         <alibaba-fastjson.version>1.2.62</alibaba-fastjson.version>
 
         <alibaba-druid.version>1.2.4</alibaba-druid.version>
-        <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.19</mysql-connector-java.version>
 
+        <!-- apache-commons -->
         <apache-common-lang3.version>3.9</apache-common-lang3.version>
-        <apache-common-text.version>1.9</apache-common-text.version>
-        <apache-common-io.version>2.6</apache-common-io.version>
+        <apache-common-io.version>2.8.0</apache-common-io.version>
         <apache-common-beanutils.version>1.9.4</apache-common-beanutils.version>
-        <apache-common-fileupload.version>1.4</apache-common-fileupload.version>
-        <apache-common-httpclient.version>4.5.10</apache-common-httpclient.version>
-        <apache-common-collections4.version>4.4</apache-common-collections4.version>
+
+        <apache-common-csv.version>1.8</apache-common-csv.version>
+        <apache-common-text.version>1.9</apache-common-text.version>
+
         <apache-common-codec.version>1.15</apache-common-codec.version>
         <apache-common-pool2.version>2.6.1</apache-common-pool2.version>
 
-        <testng.version>7.4.0</testng.version>
+        <apache-common-fileupload.version>1.4</apache-common-fileupload.version>
+        <apache-common-httpclient.version>4.5.10</apache-common-httpclient.version>
+        <apache-common-collections4.version>4.4</apache-common-collections4.version>
+
+        <!-- unit-test -->
+        <testng.version>7.1.0</testng.version>
         <mockito-core.version>3.7.7</mockito-core.version>
         <hamcrest.version>2.2</hamcrest.version>
+
+        <!-- maven-plugins http://maven.apache.org/plugins/index.html -->
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+        <maven-javadoc-plugin.version>3.3.0</maven-javadoc-plugin.version>
+        <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -149,6 +164,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -178,17 +199,18 @@
     </dependencies>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
+        <resources>
+            <resource>
+                <directory>src/test/java</directory>
+                <includes>
+                    <include>**/*.yml</include>
+                    <include>**/*.yaml</include>
+                    <include>**/*.json</include>
+                </includes>
+            </resource>
+        </resources>
 
+        <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -196,6 +218,89 @@
                 <configuration>
                     <fork>true</fork><!-- 如果没有该项配置，可能devtools不会起作用，即应用不会restart -->
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!-- Build a source-JAR from the current project.
+                http://maven.apache.org/plugins/maven-source-plugin/
+
+                一般定义在 profiles中，为了控制 prod不发布源码，但是dev发布源码
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- see: dubbo
+                1) jar中附加 `MANIFEST.MF` 信息。
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+                <configuration>
+                    <!-- https://maven.apache.org/shared/maven-archiver/ -->
+                    <archive>
+                        <addMavenDescriptor>true</addMavenDescriptor>
+                        <index>true</index>
+                        <manifest>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Specification-Version>${project.version}</Specification-Version>
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- http://maven.apache.org/maven-ci-friendly.html#install-deploy
+
+                展开maven-revision，否则其它项目依赖时会无法找到"com.xx:${revision}"
+            -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
