@@ -11,5 +11,6 @@
     </parent>
 
     <artifactId>jpa-basic-examples</artifactId>
+    <packaging>jar</packaging>
 
 </project>
