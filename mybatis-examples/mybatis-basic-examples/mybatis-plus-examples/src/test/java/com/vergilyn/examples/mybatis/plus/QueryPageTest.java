@@ -1,8 +1,5 @@
 package com.vergilyn.examples.mybatis.plus;
 
-import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
-
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -11,9 +8,11 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
 import com.vergilyn.examples.mybatis.plus.configuration.MybatisPlusInterceptorAutoConfiguration;
 import com.vergilyn.examples.mybatis.plus.entity.MybatisPlusEntity;
-
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  *

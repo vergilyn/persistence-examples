@@ -20,28 +20,6 @@
     <artifactId>mybatis-examples</artifactId>
     <packaging>pom</packaging>
 
-    <properties>
-        <mybatis-spring-boot.version>2.1.4</mybatis-spring-boot.version>
-        <mybatis-plus.version>3.4.2</mybatis-plus.version>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-spring-boot.version}</version>
-            </dependency>
-
-            <!-- mybatis-plus -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

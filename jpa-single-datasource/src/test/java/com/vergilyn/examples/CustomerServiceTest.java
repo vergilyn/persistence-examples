@@ -2,22 +2,18 @@ package com.vergilyn.examples;
 
 import com.vergilyn.examples.entity.Customer;
 import com.vergilyn.examples.service.CustomerService;
-
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.testng.Assert;
 
 /**
  * @author VergiLyn
  * @date 2019-03-21
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = JpaSingleDatasourceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Slf4j
 public class CustomerServiceTest {
@@ -26,7 +22,7 @@ public class CustomerServiceTest {
     @Value("${spring.application.name}")
     private String application;
 
-    @Before
+    @BeforeEach
     public void before(){
         System.out.println("before >>>> " + application);
     }

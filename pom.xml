@@ -17,7 +17,7 @@
         <module>spring-data-jpa-examples</module>
         <module>mongodb-examples</module>
         <module>spring-jdbc-examples</module>
-        <module>spring-jdbc-examples/declare-jdbc-examples</module>
+        <module>sharding-sphere-examples</module>
     </modules>
 
     <properties>
@@ -50,6 +50,13 @@
         <apache-common-httpclient.version>4.5.10</apache-common-httpclient.version>
         <apache-common-collections4.version>4.4</apache-common-collections4.version>
 
+        <!-- features -->
+        <apache-shardingsphere.version>5.1.1</apache-shardingsphere.version>
+
+        <!-- mybatis -->
+        <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+
         <!-- unit-test -->
         <testng.version>7.1.0</testng.version>
         <mockito-core.version>3.7.7</mockito-core.version>
@@ -71,6 +78,31 @@
                 <version>${spring-boot-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- apache, sharding-sphere -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core</artifactId>
+                <version>${apache-shardingsphere.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+                <version>${apache-shardingsphere.version}</version>
+            </dependency>
+
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
 
             <dependency>

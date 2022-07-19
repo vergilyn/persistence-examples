@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sharding-sphere-mybatis-plus-examples
+
+  profiles:
+    active:
+      - mybatis
+      - datasource
+      - shardingsphere-tables
+
+  datasource:
+    schema:
+      - classpath*:init-sql/sharding-sphere-month.sql
+
+  shardingsphere:
+    enabled: true
+
+  main:
+    allow-bean-definition-overriding: true
