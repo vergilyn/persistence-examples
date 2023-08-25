@@ -12,6 +12,7 @@
     <artifactId>sharding-sphere-examples</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>sharding-sphere-bugs-examples</module>
         <module>sharding-sphere-mybatis-plus-examples</module>
     </modules>
 

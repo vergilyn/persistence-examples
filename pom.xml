@@ -51,7 +51,7 @@
         <apache-common-collections4.version>4.4</apache-common-collections4.version>
 
         <!-- features -->
-        <apache-shardingsphere.version>5.1.1</apache-shardingsphere.version>
+        <apache-shardingsphere.version>5.1.2</apache-shardingsphere.version>
 
         <!-- mybatis -->
         <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
@@ -84,6 +84,11 @@
             <dependency>
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>shardingsphere-jdbc-core</artifactId>
+                <version>${apache-shardingsphere.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-sharding-spring-boot-starter</artifactId>
                 <version>${apache-shardingsphere.version}</version>
             </dependency>
             <dependency>
